@@ -1,5 +1,5 @@
 <h1>SIR - TP JPA, par Banchet Chloé et Kaakati Dania</h1>
-Ce TP regroupe les TP2 et 3 et aborde le JPA ainsi que Servlet/Rest.
+Ce TP regroupe les TP2 et 3 et aborde le JPA ainsi que Servlet.
 
 <h2>JPA</h2>
 A partir d'un modèle métier fournit, la création d'entités s'est faite.
@@ -25,3 +25,5 @@ Tout d'abord il faut créer les EntityManager permettant d'effectuer des transact
 sont du type insert/delete/update. Utilisation de tx.begin() et tx.commit() pour cela.
 Ici, la création de 2 personnes, avec l'ajout d'une résidence pour l'un d'entre eux.
 Elaboration de requêtes sur la base de données.
+
+<h2>Servlet</h2>
