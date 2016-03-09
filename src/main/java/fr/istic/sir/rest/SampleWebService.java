@@ -1,6 +1,8 @@
 package fr.istic.sir.rest;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -8,7 +10,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import domain.Heater;
+import domain.Person;
 import domain.Residence;
+import services.PersonServiceImpl;
+import services.ResidenceServiceImpl;
 
 @Path("/hello")
 public class SampleWebService {
@@ -21,18 +26,17 @@ public class SampleWebService {
 	@GET
 	@Path("/home")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Residence getHome() {
-		Residence h = new Residence();
-		h.setSize(3000);
-		Heater h1 = new Heater();
-		h1.setName("500w");
-		Heater h2 = new Heater();
-		h2.setName("600w");
-		ArrayList<Heater> list = new ArrayList<Heater>();
-		list.add(h1);
-		list.add(h2);
-		h.setHeater(list);
-		return h;
+	public Collection<Residence> getHome() {
+		ResidenceServiceImpl h = new ResidenceServiceImpl();
+		return h.getResidence();
+	}
+	
+	@GET
+	@Path("/persons")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<Person> getPersons() {
+		PersonServiceImpl unepers = new PersonServiceImpl();
+		return unepers.getAllPerson();
 	}
 
 }

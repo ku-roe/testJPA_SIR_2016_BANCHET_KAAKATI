@@ -1,5 +1,6 @@
 package services;
 
+import java.util.Collection;
 import java.util.List;
 
 import domain.*;
@@ -10,8 +11,8 @@ public interface ResidenceService {
 
 	void removeResidence(int id);
 
-	List<Residence> getResidence();
+	Collection<Residence> getResidence();
 
-	List<Residence> getResidence(int id);
+	Collection<Residence> getResidence(int id);
 
 }

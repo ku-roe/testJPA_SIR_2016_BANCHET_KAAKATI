@@ -1,5 +1,6 @@
 package services;
 
+import java.util.Collection;
 import java.util.List;
 
 import domain.*;
@@ -12,8 +13,8 @@ public interface PersonService {
 
 	Person getPersonById(int id);
 
-	List<Person> getAllPerson();
+	Collection<Person> getAllPerson();
 
-	List<Residence> getResidence(int id);
+	Collection<Residence> getResidence(int id);
 
 }

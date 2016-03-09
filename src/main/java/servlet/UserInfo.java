@@ -14,6 +14,16 @@ import services.PersonServiceImpl;
 
 @WebServlet(name = "userinfo", urlPatterns = { "/UserInfo" })
 public class UserInfo extends HttpServlet {
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+
+		PrintWriter out = response.getWriter();
+
+		out.println("HEY");
+		
+	}
+	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 

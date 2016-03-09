@@ -5,8 +5,8 @@ services\PersonService.class
 domain\Heater.class
 domain\HeritageBidon.class
 services\ResidenceServiceImpl.class
-domain\Residence.class
 domain\ElectronicDevice.class
+domain\Residence.class
 domain\Person.class
 services\ResidenceService.class
 servlet\MyServlet.class

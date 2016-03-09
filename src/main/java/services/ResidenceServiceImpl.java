@@ -1,5 +1,6 @@
 package services;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.EntityTransaction;
@@ -31,27 +32,21 @@ public class ResidenceServiceImpl implements ResidenceService {
 
 	}
 
-	public List<Residence> getResidence() {
+	public Collection<Residence> getResidence() {
 
 		String s = "Select r FROM Residence as r";
 		Query q = EntityManagerHelper.getEntityManager().createQuery(s, Residence.class);
-		List<Residence> res = q.getResultList();
-		EntityTransaction t = EntityManagerHelper.getEntityManager().getTransaction();
-		t.begin();
-		t.commit();
-		return res;
+		return q.getResultList();
+		
 	}
 
-	public List<Residence> getResidence(int id) {
+	public Collection<Residence> getResidence(int id) {
 
 		String s = "Select r FROM Residence as r where r.id=:id";
 		Query q = EntityManagerHelper.getEntityManager().createQuery(s, Residence.class);
 		q.setParameter("id", id);
-		List<Residence> res = q.getResultList();
-		EntityTransaction t = EntityManagerHelper.getEntityManager().getTransaction();
-		t.begin();
-		t.commit();
-		return res;
+		return q.getResultList();
+		
 	}
 
 }

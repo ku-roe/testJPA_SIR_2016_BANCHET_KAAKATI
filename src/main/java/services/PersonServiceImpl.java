@@ -1,6 +1,6 @@
 package services;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -42,25 +42,17 @@ public class PersonServiceImpl implements PersonService {
 		return res;
 	}
 
-	public List<Person> getAllPerson() {
-		String s = "Select e FROM Person as e";
+	public Collection<Person> getAllPerson() {
+		String s = "Select r FROM Person as r";
 		Query q = EntityManagerHelper.getEntityManager().createQuery(s, Person.class);
-		List<Person> res = q.getResultList();
-		EntityTransaction t = EntityManagerHelper.getEntityManager().getTransaction();
-		t.begin();
-		t.commit();
-		return res;
+		return q.getResultList();
+		
 	}
 
-	public List<Residence> getResidence(int id) {
+	public Collection<Residence> getResidence(int id) {
 		String s = "Select e.residence FROM Person as e where e.id=:id";
 		Query q = EntityManagerHelper.getEntityManager().createQuery(s, Person.class);
-		q.setParameter("id", id);
-		List<Residence> res = q.getResultList();
-		EntityTransaction t = EntityManagerHelper.getEntityManager().getTransaction();
-		t.begin();
-		t.commit();
-		return res;
+		return  q.getResultList();
 	}
 
 }
