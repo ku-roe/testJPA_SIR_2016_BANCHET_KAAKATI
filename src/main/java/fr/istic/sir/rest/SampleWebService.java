@@ -1,15 +1,15 @@
 package fr.istic.sir.rest;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import domain.Heater;
 import domain.Person;
 import domain.Residence;
 import services.PersonServiceImpl;
@@ -37,6 +37,18 @@ public class SampleWebService {
 	public Collection<Person> getPersons() {
 		PersonServiceImpl unepers = new PersonServiceImpl();
 		return unepers.getAllPerson();
+	}
+	@POST
+	@Path("/persons")
+	public void addPerson(Person p) {
+		PersonServiceImpl unepers = new PersonServiceImpl();
+		unepers.addPerson(p);
+	}
+	@DELETE
+	@Path("/persons/{id}")
+	public void deletePerson(@PathParam("id") int id) {
+		PersonServiceImpl unepers = new PersonServiceImpl();
+		unepers.removePersonById(id);
 	}
 
 }

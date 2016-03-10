@@ -23,12 +23,12 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	public void removePersonById(int id) {
-		String s = "delete FROM Person as e where e.id=:id";
-		Query q = EntityManagerHelper.getEntityManager().createQuery(s, Person.class);
-		q.setParameter("id", id);
+		
 		EntityTransaction t = EntityManagerHelper.getEntityManager().getTransaction();
 		t.begin();
+		EntityManagerHelper.getEntityManager().remove(EntityManagerHelper.getEntityManager().find( Person.class,id));
 		t.commit();
+		EntityManagerHelper.closeEntityManager();
 	}
 
 	public Person getPersonById(int id) {
